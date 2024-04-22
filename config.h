@@ -90,9 +90,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = browser} },
-	{ 0,                            XK_F11,     spawn,         {.v = voldown} },
-        { 0,                            XK_F12,     spawn,         {.v = volup} },
-        { 0,                            XK_F10,     spawn,         {.v = volmute} },
+	{ MODKEY,                            XK_F11,     spawn,         {.v = voldown} },
+        { MODKEY,                            XK_F12,     spawn,         {.v = volup} },
+        { MODKEY,                            XK_F10,     spawn,         {.v = volmute} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
