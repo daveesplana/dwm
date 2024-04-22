@@ -7,11 +7,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
+static const char col_gray1[]       = "#111111";
+static const char col_gray2[]       = "#1A4D2E";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#1A4D2E";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0";
-static const char *rofi[]     = { "rofi", "-show", "run", NULL };
+static const char *rofi[]     = { "rofi", "-theme", "android_notification", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *volup[]    = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *voldown[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
@@ -96,7 +96,7 @@ static const Key keys[] = {
         { MODKEY,                       XK_F12,    spawn,         {.v = volup} },
         { MODKEY,                       XK_F10,    spawn,         {.v = volmute} },
         { MODKEY,                       XK_F5,     spawn,         {.v = brightdn} },
-        { MODKEY,                       XK_F5,     spawn,         {.v = brightup} },
+        { MODKEY,                       XK_F6,     spawn,         {.v = brightup} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
