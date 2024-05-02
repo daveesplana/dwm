@@ -59,11 +59,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0";
 static const char *rofi[]     = { "rofi", "-theme", "android_notification", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *slock[]    = { "slock", NULL };
 static const char *volup[]    = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *voldown[]  = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *volmute[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *brightup[] = { "brightnessctl", "set", "+2%", NULL };
 static const char *brightdn[] = { "brightnessctl", "set", "2%-", NULL };
+static const char *clipmenu[] = { "clipmenu", NULL };
 static const char *browser[]  = { "librewolf", NULL };
 
 static const Key keys[] = {
@@ -92,11 +94,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = browser} },
-	{ MODKEY,                       XK_F11,    spawn,         {.v = voldown} },
-        { MODKEY,                       XK_F12,    spawn,         {.v = volup} },
-        { MODKEY,                       XK_F10,    spawn,         {.v = volmute} },
-        { MODKEY,                       XK_F5,     spawn,         {.v = brightdn} },
-        { MODKEY,                       XK_F6,     spawn,         {.v = brightup} },
+	{ MODKEY,                       XK_F11,    spawn,          {.v = voldown} },
+        { MODKEY,                       XK_F12,    spawn,          {.v = volup} },
+        { MODKEY,                       XK_F10,    spawn,          {.v = volmute} },
+        { MODKEY,                       XK_F5,     spawn,          {.v = brightdn} },
+        { MODKEY,                       XK_F6,     spawn,          {.v = brightup} },
+	{ MODKEY,                       XK_Escape, spawn,          {.v = slock} },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = clipmenu} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
