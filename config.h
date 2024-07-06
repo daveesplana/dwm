@@ -11,7 +11,7 @@ static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#1A4D2E";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#1A4D2E";
+static const char col_cyan[]        = "#251F47";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0";
-static const char *rofi[]     = { "rofi", "-theme", "android_notification", "-show", "run", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *slock[]    = { "slock", NULL };
 static const char *volup[]    = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
@@ -66,11 +66,12 @@ static const char *volmute[]  = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "t
 static const char *brightup[] = { "brightnessctl", "set", "+2%", NULL };
 static const char *brightdn[] = { "brightnessctl", "set", "2%-", NULL };
 static const char *clipmenu[] = { "clipmenu", NULL };
-static const char *browser[]  = { "librewolf", NULL };
+static const char *chromium[] = { "google-chrome-stable", NULL };
+static const char *firefox[]  = { "firefox", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -93,7 +94,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_q,      spawn,          {.v = browser} },
 	{ MODKEY,                       XK_F11,    spawn,          {.v = voldown} },
         { MODKEY,                       XK_F12,    spawn,          {.v = volup} },
         { MODKEY,                       XK_F10,    spawn,          {.v = volmute} },
@@ -101,6 +101,8 @@ static const Key keys[] = {
         { MODKEY,                       XK_F6,     spawn,          {.v = brightup} },
 	{ MODKEY,                       XK_Escape, spawn,          {.v = slock} },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = clipmenu} },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = firefox} },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = chromium } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
