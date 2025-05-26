@@ -67,7 +67,7 @@ static const char *mutevol[]  = { "/usr/bin/pactl", "set-sink-mute", "@DEFAULT_S
 static const char *brightup[] = { "brightnessctl", "set", "+2%", NULL };
 static const char *brightdn[] = { "brightnessctl", "set", "2%-", NULL };
 static const char *clipmenu[] = { "clipmenu", NULL };
-static const char *browser[]  = { "brave", NULL };
+static const char *browser[]  = { "brave-browser", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
