@@ -67,7 +67,7 @@ static const char *mutevol[]  = { "/usr/bin/pactl", "set-sink-mute", "@DEFAULT_S
 static const char *brightup[] = { "brightnessctl", "set", "+2%", NULL };
 static const char *brightdn[] = { "brightnessctl", "set", "2%-", NULL };
 static const char *clipmenu[] = { "clipmenu", NULL };
-static const char *browser[]  = { "librewolf", NULL };
+static const char *browser[]  = { "qutebrowser", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,10 +101,10 @@ static const Key keys[] = {
         { MODKEY,                       XK_F6,     spawn,          {.v = brightdn} },
 	{ MODKEY,                       XK_Escape, spawn,          {.v = slock} },
 	{ 0,                            XF86XK_AudioRaiseVolume,    spawn,          {.v = upvol   } },
-	{ 0,                            XF86XK_AudioLowerVolume,     spawn,          {.v = downvol } },
-	{ 0,                            XF86XK_AudioMute,     spawn,          {.v = mutevol } },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = clipmenu} },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = browser } },
+	{ 0,                            XF86XK_AudioLowerVolume,    spawn,          {.v = downvol } },
+	{ 0,                            XF86XK_AudioMute,           spawn,          {.v = mutevol } },
+	{ MODKEY|ShiftMask,             XK_p,                       spawn,          {.v = clipmenu} },
+	{ MODKEY,                       XK_s,                       spawn,          {.v = browser } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -114,7 +114,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+        { MODKEY|ShiftMask,             XK_q,                       quitprompt,                  {0} },
 };
 
 /* button definitions */
